@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 7</title>
+</head>
+<body>
+	<style>
+		#container{
+			padding-top: 100px;
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+		}
+		.transport,
+		.food__input,
+		.gid__input{
+			display: grid;
+			justify-items: center;
+		}
+		.transport p,
+		.food p,
+		.gid p{
+			text-align: center;
+		}
+		.foods{
+			font-size: 20px;
+			font-family: "Raleway";
+		}
+		.container__result{
+			display: grid;
+			justify-items: center;
+		}
+		#ResultBtn{
+			width: 200px;
+			font-family: "Raleway";
+			font-size: 20px;
+		}
+	</style>
+	<div id="container">
+		<div class="container__transport transport">
+			<p>Оберіть <span>транспорт</span></p>
+			<select id="Transport" class="transport__select">
+				<option value="400">Авто</option>
+				<option value="300">Автобус</option>
+				<option value="900">Літак</option>
+			</select>
+		</div>
+		<div class="container__food food">
+			<p>Оберіть <span>харчування</span></p>
+			<div class="food__input">
+				<label>Сніданок
+					<input type="checkbox" value="100" class="foods">
+				</label>
+				<label>Обід
+					<input type="checkbox" value="150" class="foods">
+				</label>
+				<label>Вечеря
+					<input type="checkbox" value="200" class="foods">
+				</label>
+			</div>
+		</div>
+		<div class="container__gid gid">
+			<p>Оберіть <span>гіда</span></p>
+			<div class="gid__input">
+				<label>John
+					<input type="radio" name="gid" value="200" class="gids">
+				</label>
+				<label>Colin
+					<input type="radio" name="gid" value="150" class="gids">
+				</label>
+				<label>Arthur
+					<input type="radio" name="gid" value="250" class="gids">
+				</label>
+			</div>
+		</div>
+		<div class="container__result">
+			<button id="ResultBtn">Розрахувати</button>
+			<p>Загальна вартість: <span id="Result"></span></p>
+		</div>	
+	</div>
+	<script>
+	/*Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з видів транспорту 
+	(авто, автобус, літак - випадаючий список), 
+	харчування (сніданок, обід, вечеря – checkbоx) 
+	та одного з 3-х гідів(використати - radio buttons). 
+	Ціни визначте самі. Підрахувати загальну вартість.*/
+	function getTotalPrice(){
+		let totalSum = 0 
+		let transport = parseInt(document.getElementById('Transport').value)
+		totalSum+=transport
+		let food = document.getElementsByClassName('foods')
+		for(const elem of food){
+			if(elem.checked) totalSum += parseInt(elem.value)
+		}
+		let gids = document.getElementsByClassName('gids')
+		for(const gid of gids){
+			if(gid.checked) totalSum += parseInt(gid.value)
+		}
+		let result = document.getElementById('Result')
+		result.innerText = totalSum + '$'
+	}
+	window.onload = function(){
+		document.getElementById('ResultBtn').onclick = getTotalPrice
+	}
+	</script>
+</body>
+</html>

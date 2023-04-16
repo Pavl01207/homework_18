@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<style>
+		.container{
+			padding: 100px;
+		}
+		.form{
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+	</style>
+	<script>
+		//Зробити конвертер валют (курси валют – константи у скрипті)
+		const dollar = 38
+		const euro = 40
+		function converter(){
+			let grn = parseFloat(document.getElementById('grn').value)
+			let sumInEuro = grn/euro
+			let sumInDollar = grn/dollar
+			document.getElementById('eur').value = sumInEuro.toFixed(2)
+			document.getElementById('dol').value = sumInDollar.toFixed(2)
+		}
+		window.onload = function(){
+			document.getElementById('btn').onclick = converter
+		}
+	</script>
+	<div class="container">
+		<form action="#" class="form">
+			<div class="form__line">
+				<label for="grn">Сума в гривнях</label>
+				<input type="text" id="grn" placeholder="0">
+			</div>
+			<button class="button" id="btn">Конвертувати</button>
+			<div class="form__line">
+				<label for="eur">Сума в євро</label>
+				<input type="text" id="eur" placeholder="0">
+			</div>
+			<div class="form__line">
+				<label for="dol">Сума в доларах</label>
+				<input type="text" id="dol" placeholder="0">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

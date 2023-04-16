@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Task 4</title>
+</head>
+<body>
+<section id="container"></section>
+<style>
+	.wish{
+		font-size: 28px;
+		color: red;
+		padding-bottom: 20px;
+		text-align: center;
+	}
+</style>
+<script>
+	/*Наперед задано у скрипті масив зі списком бажань. 
+	Після завантаження сторінки випадковим чином вибираються 
+	3 і відображаються у окремих div (їх треба створити і додати на сторінку)*/
+	let wishList = [
+		'Знайти роботу мрії!',
+		'Більше відпочивати!',
+		'Перемоги!',
+		'Миру!',
+		'Любові!',
+	]
+	class Wish{
+		constructor(wishList){
+			this.wishList = wishList
+		}
+		get randomNumber(){
+			return 0 + Math.floor(Math.random()*(this.wishList.length-1))
+		}
+		render(){
+			const containerElement = document.getElementById("container")
+			const firstWish = document.createElement('div')
+			firstWish.innerText = this.wishList[this.randomNumber]
+			containerElement.append(firstWish)
+			const secondtWish = document.createElement('div')
+			secondtWish.innerText = this.wishList[this.randomNumber]
+			containerElement.append(secondtWish)
+			const thirdtWish = document.createElement('div')
+			thirdtWish.innerText = this.wishList[this.randomNumber]
+			containerElement.append(thirdtWish)
+			let elementsList = document.getElementsByTagName('div')
+			for(const elem of elementsList){
+				elem.classList.add('wish')
+			}
+		}
+	}
+	window.onload = function(){
+		let wish = new Wish(wishList)
+		wish.render()
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="task_1.css">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<script>
+	//Розробити калькулятор
+	function getSumm(){
+		let firstNumber = parseInt(document.getElementById('first').value)
+		let secondNumber = parseInt(document.getElementById('second').value)
+		let summ = firstNumber + secondNumber
+		document.getElementById('result').value = summ
+	}
+	function getSubtraction(){
+		let firstNumber = parseInt(document.getElementById('first').value)
+		let secondNumber = parseInt(document.getElementById('second').value)
+		let subtraction = firstNumber - secondNumber
+		document.getElementById('result').value = subtraction
+	}
+	function getMultiply(){
+		let firstNumber = parseInt(document.getElementById('first').value)
+		let secondNumber = parseInt(document.getElementById('second').value)
+		let multiply = firstNumber * secondNumber
+		document.getElementById('result').value = multiply
+	}
+	function getShare(){
+		let firstNumber = parseInt(document.getElementById('first').value)
+		let secondNumber = parseInt(document.getElementById('second').value)
+		let share = firstNumber / secondNumber
+		document.getElementById('result').value = share
+	}
+	window.onload = function(){
+		document.getElementById('add').onclick = getSumm
+		document.getElementById('subtraction').onclick = getSubtraction
+		document.getElementById('multiply').onclick = getMultiply
+		document.getElementById('share').onclick = getShare
+	}
+	</script>
+	<div class="container">
+		<form action="#" class="form">
+			<div class="form__line">
+				<label for="first">First Number</label>
+				<input type="text" value="" placeholder="0" id="first">
+			</div>
+			<div class="form__line">
+				<label for="second">Second Number</label>
+				<input type="text" value="" placeholder="0" id="second">
+			</div>
+			<div class="form__button">
+				<button class="button" id="add">Add</button>
+				<button class="button" id="subtraction">Subtraction</button>
+				<button class="button" id="multiply">Multiply</button>
+				<button class="button" id="share">Share</button>
+			</div>
+			<div class="form__line">
+				<label for="result">Result</label>
+				<input type="text" value="" id="result">
+			</div>
+		</form>
+	</div>
+</body>
+</html>
